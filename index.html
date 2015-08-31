@@ -83,28 +83,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###关于 DocumentInteraction</p>
-<p>######## iOS支持在你的app中用其他app预览和显示文档。iOS还支持文件关联，允许其他app通过你的程序打开文件。这些技术包括了UIKit中提供的UIDocumentInteractionController类（ UIDocumentInteractionController Class Reference)，以及Quick Look框架（Quick Look Framework Reference)。</p>
-<p>###DocumentInteraction的具体使用</p>
-<p>######首先创建UIDocumentInteractionController实例，并添加代理，代码如下</p>
+        <p>关于 DocumentInteraction</p>
+<p>iOS支持在你的app中用其他app预览和显示文档。iOS还支持文件关联，允许其他app通过你的程序打开文件。这些技术包括了UIKit中提供的UIDocumentInteractionController类（ UIDocumentInteractionController Class Reference)，以及Quick Look框架（Quick Look Framework Reference)。</p>
+<p>DocumentInteraction的具体使用</p>
+<p>首先创建UIDocumentInteractionController实例，并添加代理，代码如下</p>
 <p><code>@interface Previewontroller ()&lt;UIDocumentInteractionControllerDelegate&gt;</code></p>
 <p><code>@property (strong, nonatomic) UIDocumentInteractionController *documentinteractioncontroller;</code> </p>
 <p><code>self.documentinteractioncontroller.delegate = self;</code></p>
-<p>######DocumentInteraction Controller使用静态方法interactionControllerWithURL创建实例，这个方法使用一个NSURL作为参数。</p>
+<p>DocumentInteraction Controller使用静态方法interactionControllerWithURL创建实例，这个方法使用一个NSURL作为参数。</p>
 <p><code>NSURL *url = [[NSBundle mainBundle] URLForResource:@&quot;aaa&quot; withExtension:@&quot;pdf&quot;];</code></p>
 <p><code>if (url) {
-        self.documentinteractioncontroller = [UIDocumentInteractionController interactionControllerWithURL:url];</code></p>
-<p>######Document Interaction Controller对象使用presentPreviewAnimated方法弹出一个全屏的文档预览窗口。代码如下<br><code>[self.documentinteractioncontroller presentPreviewAnimated:YES];</code></p>
-<p>######使用委托 如果你显示一个Document Interaction Controller ，则必需要为delegate属性用指定一个委托。让委托告诉DocumentInteraction Controller如何显示。<br>`</p>
+        self.documentinteractioncontroller = [UIDocumentInteractionController interactionControllerWithURL:url];</code><br>Document Interaction Controller对象使用presentPreviewAnimated方法弹出一个全屏的文档预览窗口。代码如下</p>
+<p><code>[self.documentinteractioncontroller presentPreviewAnimated:YES];</code></p>
+<p>使用委托 如果你显示一个Document Interaction Controller ，则必需要为delegate属性用指定一个委托。让委托告诉DocumentInteraction Controller如何显示。</p>
+<p>`</p>
 <ul>
-<li>(UIViewController <em>)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController </em>)controll<br><code>系统默认的预览窗口语言是英文，想改成中文的话要更改info.plist文件的Localization native development region（定位本地开发地区）为China，这样预览窗口就变成中文了
-######点击预览串口的done 调用代理中的</code>- (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller;`</li>
+<li>(UIViewController <em>)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController </em>)controll<br>`<br>系统默认的预览窗口语言是英文，想改成中文的话要更改info.plist文件的Localization native development region（定位本地开发地区）为China，这样预览窗口就变成中文了</li>
 </ul>
+<p>点击预览串口的done 调用代理中的</p>
+<p><code>- (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller;</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cidzkpyk60001nci0p2h3mr6v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cidzkqmyu0001o8i0ed3etk0y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -141,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cidzkpyje0000nci0sliot9z6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cidzkqmy70000o8i0me8dhf2e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cidzkpyk80002nci06yovjpfu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cidzkqmyw0002o8i088atuhbs" class="article-share-link">Share</a>
       
       
     </footer>
