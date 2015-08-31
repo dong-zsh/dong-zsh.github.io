@@ -13,7 +13,7 @@ iOS支持在你的app中用其他app预览和显示文档。iOS还支持文件�
 <meta property="og:site_name" content="Dongdong blog">
 <meta property="og:description" content="关于 DocumentInteraction
 iOS支持在你的app中用其他app预览和显示文档。iOS还支持文件关联，允许其他app通过你的程序打开文件。这些技术包括了UIKit中提供的UIDocumentInteractionController类（ UIDocumentInteractionController Class Reference)，以及Quick Look框架（Quick Lo">
-<meta property="og:updated_time" content="2015-08-31T07:01:22.000Z">
+<meta property="og:updated_time" content="2015-08-31T12:41:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS预览文件类">
 <meta name="twitter:description" content="关于 DocumentInteraction
@@ -89,26 +89,21 @@ iOS支持在你的app中用其他app预览和显示文档。iOS还支持文件�
 <p>iOS支持在你的app中用其他app预览和显示文档。iOS还支持文件关联，允许其他app通过你的程序打开文件。这些技术包括了UIKit中提供的UIDocumentInteractionController类（ UIDocumentInteractionController Class Reference)，以及Quick Look框架（Quick Look Framework Reference)。</p>
 <p>DocumentInteraction的具体使用</p>
 <p>首先创建UIDocumentInteractionController实例，并添加代理，代码如下</p>
-<p><code>@interface Previewontroller ()&lt;UIDocumentInteractionControllerDelegate&gt;</code></p>
-<p><code>@property (strong, nonatomic) UIDocumentInteractionController *documentinteractioncontroller;</code> </p>
-<p><code>self.documentinteractioncontroller.delegate = self;</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Previewontroller</span> ()&lt;<span class="title">UIDocumentInteractionControllerDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UIDocumentInteractionController</span> *documentinteractioncontroller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span><span class="variable">.documentinteractioncontroller</span><span class="variable">.delegate</span> = <span class="keyword">self</span>;`</span><br></pre></td></tr></table></figure>
 <p>DocumentInteraction Controller使用静态方法interactionControllerWithURL创建实例，这个方法使用一个NSURL作为参数。</p>
-<p><code>NSURL *url = [[NSBundle mainBundle] URLForResource:@&quot;aaa&quot; withExtension:@&quot;pdf&quot;];</code></p>
-<p><code>if (url) {
-        self.documentinteractioncontroller = [UIDocumentInteractionController interactionControllerWithURL:url];</code><br>Document Interaction Controller对象使用presentPreviewAnimated方法弹出一个全屏的文档预览窗口。代码如下</p>
-<p><code>[self.documentinteractioncontroller presentPreviewAnimated:YES];</code></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSURL</span> *url = [[<span class="built_in">NSBundle</span> mainBundle] URLForResource:<span class="string">@"aaa"</span> withExtension:<span class="string">@"pdf"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (url) &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.documentinteractioncontroller</span> = [<span class="built_in">UIDocumentInteractionController</span> interactionControllerWithURL:url];</span><br></pre></td></tr></table></figure>
+<p>Document Interaction Controller对象使用presentPreviewAnimated方法弹出一个全屏的文档预览窗口。代码如下</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">[self.documentinteractioncontroller presentPreviewAnimated:YES]</span><span class="comment">;`</span></span><br></pre></td></tr></table></figure>
 <p>使用委托 如果你显示一个Document Interaction Controller ，则必需要为delegate属性用指定一个委托。让委托告诉DocumentInteraction Controller如何显示。</p>
-<p>`</p>
-<ul>
-<li>(UIViewController <em>)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController </em>)controll<br>`<br>系统默认的预览窗口语言是英文，想改成中文的话要更改info.plist文件的Localization native development region（定位本地开发地区）为China，这样预览窗口就变成中文了</li>
-</ul>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- <span class="list">(<span class="keyword">UIViewController</span> <span class="variable">*)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *</span>)</span>controll</span><br></pre></td></tr></table></figure>
+<p>系统默认的预览窗口语言是英文，想改成中文的话要更改info.plist文件的Localization native development region（定位本地开发地区）为China，这样预览窗口就变成中文了</p>
 <p>点击预览串口的done 调用代理中的</p>
-<p><code>- (void)documentInteractionControllerDidEndPreview:(UIDocumentInteractionController *)controller;</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (<span class="tag">void</span>)<span class="rule"><span class="attribute">documentInteractionControllerDidEndPreview</span>:<span class="value">(UIDocumentInteractionController *)controller</span></span>;`</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cidzkqmyu0001o8i0ed3etk0y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cidzkxbi60001rbi0yd0ejb94" class="article-share-link">Share</a>
       
       
     </footer>
