@@ -115,6 +115,13 @@
 <p>解决方法是–只要把title设置为@””就行了</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIAlertView *alterView = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">""</span> <span class="string">message:</span>@<span class="string">"远端Git仓库和标准的Git仓库有如下差别：一个标准的Git仓库包括了源代码和历史信息记录。我们可以直接在这个基础上修改代码，因为它已经包含了一个工作副本。"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"知道了"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">[alterView show];</span><br></pre></td></tr></table></figure>
 <h2 id="6-iOS_tableview分割线短15像素_ios7（废弃）_iOS8方法">6.iOS tableview分割线短15像素 ios7（废弃） iOS8方法</h2><p>在xib中拖入一个tableview可以在右边的控制面板看到一个属性 Separator insetss 默认是Default，点开后可以发现能设置为Custom，系统默认分割线有离左边15像素的距离，把这个值改成0就好了。运行一下发现有数据的cell的分割线还是有15像素的距离，没有数据的cell直接顶格了.（适用于Xcode5）(然而这并没有什么卵用…)</p>
+<p>我查询下 tableview delegate  我们会发现 ios7 增加了一些新属性，<br>@property (nonatomic)         UIEdgeInsets                separatorInset       NS_AVAILABLE_IOS(7_0)UI_APPEARANCE_SELECTOR;// allows customization of the frame of cell separators</p>
+<p>这个时候你应改发现separatorInset 这个单词是否有点眼熟，  苹果公司已经给了注释，可以自定义视cell 的分割线，<br>UIEdgeInsets 是个结构体类型，这时候我们发现了我们要的属性 left</p>
+<p>typedef struct UIEdgeInsets {<br>    CGFloat top, left, bottom, right; // specify amount to inset (positive) for each of the edges. values can be negative to ‘outset’<br>} UIEdgeInsets;</p>
+<p>转载<br>现在我们可以用代码调用下面这个方法，</p>
+<pre><code>[myTableView setSeparatorInset:UIEdgeInsetsMake(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)];
+</code></pre><p>这时候你会发现你的tableview 的分割线是不是跟以前一样了呢!</p>
+<p>在ios7中，UITableViewCell左侧会有默认15像素的空白。这时候，设置setSeparatorInset:UIEdgeInsetsZero 能将空白去掉。<br>但是在ios8中，设置setSeparatorInset:UIEdgeInsetsZero 已经不起作用了。下面是解决办法</p>
 <p>在iOS8中可以使用代码来去掉所有分割线的15像素，方法如下</p>
 <p>首先在viewDidLoad中添加如下代码</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">if</span> ([self.tableview_aoto <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setSeparatorInset</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[self.tableview_aoto setSeparatorInset:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="tag">if</span> ([self.tableview_aoto <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setLayoutMargins</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[self.tableview_aoto setLayoutMargins:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -125,7 +132,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie16yhuw000181i0hu3ueq9c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie17634h0001agi0yn0jb0jc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -175,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cie16yhuy000281i0ir4hvqj8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cie17634j0002agi08sg4top4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +219,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cie16yhu9000081i05yhfztsq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cie17633s0000agi0k6w0tvza" class="article-share-link">Share</a>
       
       
     </footer>
@@ -257,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cie16yhv0000381i06yjcny3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cie17634l0003agi0zkawudj9" class="article-share-link">Share</a>
       
       
     </footer>
