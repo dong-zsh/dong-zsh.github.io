@@ -36,10 +36,6 @@
         <a href="/" id="logo">Dongdong blog</a>
       </h1>
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">废物、人渣、懦夫、可笑之徒、可恨之人！</a>
-        </h2>
-      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -95,30 +91,25 @@
 <p>3.automaticallyAdjustsScrollViewInsets：如果你不想让scroll view的内容自动调整，将这个属性设为NO（默认值YES）。</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#define IOS7 [[[UIDevice currentDevice]systemVersion] floatValue] &gt;= 7.0</span></span><br><span class="line">/添加代码</span><br><span class="line"><span class="keyword">if</span> (IOS7)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.edgesForExtendedLayout</span> = <span class="built_in">UIRectEdgeNone</span>;               <span class="comment">//视图控制器，四条边不指定</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.extendedLayoutIncludesOpaqueBars</span> = <span class="literal">NO</span>;                 <span class="comment">//不透明的操作栏&lt;br&gt;    self.modalPresentationCapturesStatusBarAppearance = NO;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#if __IPHONE_OS_VERSION_MAX_ALLOWED &gt;= 70000</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="constant">IOS7</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">self</span>.edgesForExtendedLayout = <span class="constant">UIRectEdgeNone</span>;</span><br><span class="line">        <span class="keyword">self</span>.extendedLayoutIncludesOpaqueBars = <span class="constant">NO</span>;</span><br><span class="line">        <span class="keyword">self</span>.modalPresentationCapturesStatusBarAppearance = <span class="constant">NO</span>;</span><br><span class="line"><span class="regexp">//</span>        <span class="keyword">self</span>.automaticallyAdjustsScrollViewInsets = <span class="constant">NO</span>;</span><br><span class="line"><span class="regexp">//</span>        <span class="keyword">self</span>.navigationController.navigationBar.translucent = <span class="constant">NO</span>;</span><br><span class="line"><span class="regexp">//</span>        <span class="keyword">self</span>.tabBarController.tabBar.translucent = <span class="constant">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">#endif</span></span><br></pre></td></tr></table></figure>
-<h1 id="iOS8和xcode6的坑">iOS8和xcode6的坑</h1><p>1.NSUserDefaults坑</p>
-<p>通过NSUserDefaults储存在本地的数据，在模拟器删除APP、clean之后无法清空数据，我尝试删除iPhone 4s、iPhone 5s……里面的同一个项目，还是无解，这应该是个BUG，等苹果更新Xcode吧（我目前用的6.0）。但是真机没有这种情况(必须的啊)</p>
-<p>2.UITableView坑</p>
-<p>带有UITableView的界面如果到遇到以下警告</p>
+<h1 id="iOS8和xcode6的坑">iOS8和xcode6的坑</h1><h2 id="1-NSUserDefaults">1.NSUserDefaults</h2><p>通过NSUserDefaults储存在本地的数据，在模拟器删除APP、clean之后无法清空数据，我尝试删除iPhone 4s、iPhone 5s……里面的同一个项目，还是无解，这应该是个BUG，等苹果更新Xcode吧（我目前用的6.0）。但是真机没有这种情况(必须的啊)</p>
+<h2 id="2-UITableView坑">2.UITableView坑</h2><p>带有UITableView的界面如果到遇到以下警告</p>
 <figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Warning once only: Detected <span class="operator">a</span> <span class="keyword">case</span> where constraints ambiguously suggest <span class="operator">a</span> height <span class="operator">of</span> <span class="constant">zero</span> <span class="keyword">for</span> <span class="operator">a</span> tableview cell<span class="string">'s content view. We'</span>re considering <span class="operator">the</span> collapse unintentional <span class="operator">and</span> <span class="keyword">using</span> standard height instead.</span><br></pre></td></tr></table></figure>
 <p>添加如下代码可解决</p>
 <figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">self</span>.<span class="built_in">table</span>View.rowHeight = <span class="number">44.0</span>f;</span><br></pre></td></tr></table></figure>
-<p>3.Tableview的detailTextLabel无法显示</p>
-<p>先来看看下边的代码</p>
+<h2 id="3-Tableview的detailTextLabel无法显示">3.Tableview的detailTextLabel无法显示</h2><p>先来看看下边的代码</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">1.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.array</span> = @[<span class="string">@"测试"</span>];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.tableView</span> reloadData];</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:<span class="string">@"TradeRecordCell"</span></span><br><span class="line">                                                            forIndexPath:indexPath];</span><br><span class="line">    cell<span class="variable">.detailTextLabel</span><span class="variable">.text</span> = _array[indexPath<span class="variable">.row</span>];</span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代码没什么问题，在iOS 7下，一秒之后cell的detailTextLabel就会显示测试两个字，但是在iOS 8却不行detailTextLabel显示为空。测试发现，当detailTextLabel的text一开始为空，iOS 8下运行就会把这个label的size设置(0, 0)从而不能正确显示，原因是这里cell.detailTextLabel.text = _array[indexPath.row];一开始数据就是空的，解决办法：</p>
 <p>如果是空就不去设置值</p>
 <figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="params">(_array[indexPath.row])</span> &#123;</span><br><span class="line">        cell.detailTextLabel.<span class="built_in">text</span> = _array[indexPath.row];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>或者是</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cell.detailTextLabel.<span class="type">text</span> = _array[indexPath.row] ? : @<span class="string">" "</span>;</span><br></pre></td></tr></table></figure>
-<p>4.pch文件不见了</p>
-<p>现在Xcode 6创建的项目默认是不带pch文件的，当然了旧版本的项目是会保留的。那么如何添加pch文件？</p>
+<h2 id="4-pch文件不见了">4.pch文件不见了</h2><p>现在Xcode 6创建的项目默认是不带pch文件的，当然了旧版本的项目是会保留的。那么如何添加pch文件？</p>
 <ul>
 <li>Command + N 然后在Other里面选择PCH File</li>
 <li>在Build Settings里面找到Prefix Header</li>
 </ul>
 <p>添加pch文件，规则是: 项目名/xxxxx.pch</p>
-<p>5.UIAlertView的坑</p>
-<p>UIAlertView显示无标题的长文本问题</p>
+<h2 id="5-UIAlertView的坑">5.UIAlertView的坑</h2><p>UIAlertView显示无标题的长文本问题</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIAlertView</span> *alterView = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="literal">nil</span> message:<span class="string">@"远端Git仓库和标准的Git仓库有如下差别：一个标准的Git仓库包括了源代码和历史信息记录。我们可以直接在这个基础上修改代码，因为它已经包含了一个工作副本。"</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@"知道了"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line">[alterView show];</span><br></pre></td></tr></table></figure>
 <p>上面这段代码在iOS 8下显示的样子是，内容完全顶到的顶部，文字还莫名其妙的加粗了</p>
 <p>解决方法是–只要把title设置为@””就行了</p>
@@ -126,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie0nuhvm0001gmi08s1l4fzy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie15z2wv0001vii019a3dkmu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -176,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cie0nuhvy0002gmi0r3urvjm1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cie15z2x70002vii0guxvhkfd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cie0nuhus0000gmi0py53ux0x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cie15z2w90000vii0183bj9n3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -258,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cie0nuhw00003gmi0o3vuzitb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cie15z2x90003vii0x0xhaz5a" class="article-share-link">Share</a>
       
       
     </footer>
