@@ -15,7 +15,7 @@ UIViewController提供了如下属性来调整视图控制器的外观：
 <meta property="og:description" content="（1）.使用视图控制器（View Controller）在iOS 7中，视图控制器都是全屏的。iOS 7视图控制器的外观给人传达了更细腻的控制感。特别是新的全屏外观让你可以指定视图的每个边缘的布局。
 UIViewController提供了如下属性来调整视图控制器的外观：
 1.edgesForExtendedLayout：这个属性属于UIExtendedEdge类型，它可以单独指定矩形的四条边，也可">
-<meta property="og:updated_time" content="2015-09-01T09:39:36.000Z">
+<meta property="og:updated_time" content="2015-09-01T10:07:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随笔小记">
 <meta name="twitter:description" content="（1）.使用视图控制器（View Controller）在iOS 7中，视图控制器都是全屏的。iOS 7视图控制器的外观给人传达了更细腻的控制感。特别是新的全屏外观让你可以指定视图的每个边缘的布局。
@@ -119,10 +119,18 @@ UIViewController提供了如下属性来调整视图控制器的外观：
 <p>上面这段代码在iOS 8下显示的样子是，内容完全顶到的顶部，文字还莫名其妙的加粗了</p>
 <p>解决方法是–只要把title设置为@””就行了</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UIAlertView *alterView = [[UIAlertView alloc] <span class="string">initWithTitle:</span>@<span class="string">""</span> <span class="string">message:</span>@<span class="string">"远端Git仓库和标准的Git仓库有如下差别：一个标准的Git仓库包括了源代码和历史信息记录。我们可以直接在这个基础上修改代码，因为它已经包含了一个工作副本。"</span> <span class="string">delegate:</span>self <span class="string">cancelButtonTitle:</span>@<span class="string">"知道了"</span> <span class="string">otherButtonTitles:</span>nil, nil];</span><br><span class="line">[alterView show];</span><br></pre></td></tr></table></figure>
+<h2 id="6-iOS_tableview分割线短15像素_ios7（废弃）_iOS8方法">6.iOS tableview分割线短15像素 ios7（废弃） iOS8方法</h2><p>在xib中拖入一个tableview可以在右边的控制面板看到一个属性 Separator insetss 默认是Default，点开后可以发现能设置为Custom，系统默认分割线有离左边15像素的距离，把这个值改成0就好了。运行一下发现有数据的cell的分割线还是有15像素的距离，没有数据的cell直接顶格了.（适用于Xcode5）(然而这并没有什么卵用…)</p>
+<p>在iOS8中可以使用代码来去掉所有分割线的15像素，方法如下</p>
+<p>首先在viewDidLoad中添加如下代码</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">if</span> ([self.tableview_aoto <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setSeparatorInset</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[self.tableview_aoto setSeparatorInset:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="tag">if</span> ([self.tableview_aoto <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setLayoutMargins</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[self.tableview_aoto setLayoutMargins:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>然后再tableview的代理方法中添加如下代码</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">tableView</span>:(UITableView *)<span class="tag">tableView</span> <span class="tag">willDisplayCell</span>:(UITableViewCell *)<span class="tag">cell</span> <span class="tag">forRowAtIndexPath</span>:(NSIndexPath *)<span class="tag">indexPath</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="tag">if</span> ([cell <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setSeparatorInset</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[cell setSeparatorInset:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="tag">if</span> ([cell <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setLayoutMargins</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[cell setLayoutMargins:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后可以看到所有的分割线全部顶格了</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie15z2wv0001vii019a3dkmu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie16yhuw000181i0hu3ueq9c" class="article-share-link">Share</a>
       
       
     </footer>
