@@ -15,7 +15,8 @@ UIViewController提供了如下属性来调整视图控制器的外观：
 <meta property="og:description" content="（1）.使用视图控制器（View Controller）在iOS 7中，视图控制器都是全屏的。iOS 7视图控制器的外观给人传达了更细腻的控制感。特别是新的全屏外观让你可以指定视图的每个边缘的布局。
 UIViewController提供了如下属性来调整视图控制器的外观：
 1.edgesForExtendedLayout：这个属性属于UIExtendedEdge类型，它可以单独指定矩形的四条边，也可">
-<meta property="og:updated_time" content="2015-09-01T10:13:26.000Z">
+<meta property="og:image" content="http://7xlip0.com1.z0.glb.clouddn.com/aiOS%20Simulator%20Screen%20Shot%202015年9月2日%20上午9.55.13.png">
+<meta property="og:updated_time" content="2015-09-02T01:58:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随笔小记">
 <meta name="twitter:description" content="（1）.使用视图控制器（View Controller）在iOS 7中，视图控制器都是全屏的。iOS 7视图控制器的外观给人传达了更细腻的控制感。特别是新的全屏外观让你可以指定视图的每个边缘的布局。
@@ -133,11 +134,12 @@ UIViewController提供了如下属性来调整视图控制器的外观：
 <p>然后再tableview的代理方法中添加如下代码</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">tableView</span>:(UITableView *)<span class="tag">tableView</span> <span class="tag">willDisplayCell</span>:(UITableViewCell *)<span class="tag">cell</span> <span class="tag">forRowAtIndexPath</span>:(NSIndexPath *)<span class="tag">indexPath</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="tag">if</span> ([cell <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setSeparatorInset</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[cell setSeparatorInset:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="tag">if</span> ([cell <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setLayoutMargins</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[cell setLayoutMargins:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最后可以看到所有的分割线全部顶格了</p>
+<p><img src="http://7xlip0.com1.z0.glb.clouddn.com/aiOS%20Simulator%20Screen%20Shot%202015年9月2日%20上午9.55.13.png" alt="图片"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie17634h0001agi0yn0jb0jc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie24xqvs0001rsi0f2f0q5dh" class="article-share-link">Share</a>
       
       
     </footer>
