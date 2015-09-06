@@ -3,17 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/9 | Dongdong blog</title>
+  <title>设置appicon和启动图 | Dongdong blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Dongdong blog">
-<meta property="og:url" content="http://yoursite.com/archives/2015/09/index.html">
+  <meta name="description" content="设置appiconGeneral – App Icon Source  设置AppIcon 
+图片大小
+iphone 6P（@3x）    180x180
+iphone 6（@2x）
+iphone5/5s （@2x）    120x120
+iphone4/4s (@2x)
+设置launchimage第一种方法
+General – launch image source – use asset ca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设置appicon和启动图">
+<meta property="og:url" content="http://yoursite.com/2015/09/06/设置appicon和启动图/index.html">
 <meta property="og:site_name" content="Dongdong blog">
-<meta property="og:description">
+<meta property="og:description" content="设置appiconGeneral – App Icon Source  设置AppIcon 
+图片大小
+iphone 6P（@3x）    180x180
+iphone 6（@2x）
+iphone5/5s （@2x）    120x120
+iphone4/4s (@2x)
+设置launchimage第一种方法
+General – launch image source – use asset ca">
+<meta property="og:updated_time" content="2015-09-06T14:18:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dongdong blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="设置appicon和启动图">
+<meta name="twitter:description" content="设置appiconGeneral – App Icon Source  设置AppIcon 
+图片大小
+iphone 6P（@3x）    180x180
+iphone 6（@2x）
+iphone5/5s （@2x）    120x120
+iphone4/4s (@2x)
+设置launchimage第一种方法
+General – launch image source – use asset ca">
   
     <link rel="alternative" href="/atom.xml" title="Dongdong blog" type="application/atom+xml">
   
@@ -59,96 +81,71 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/09/06/设置appicon和启动图/" class="archive-article-date">
-  <time datetime="2015-09-06T13:27:52.000Z" itemprop="datePublished">9月 6</time>
+        <section id="main"><article id="post-设置appicon和启动图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/06/设置appicon和启动图/" class="article-date">
+  <time datetime="2015-09-06T13:27:52.000Z" itemprop="datePublished">2015-09-06</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/06/设置appicon和启动图/">设置appicon和启动图</a>
+    <h1 class="article-title" itemprop="name">
+      设置appicon和启动图
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/09/02/iOS面试题和参考答案（下篇）/" class="archive-article-date">
-  <time datetime="2015-09-02T06:24:34.000Z" itemprop="datePublished">9月 2</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/02/iOS面试题和参考答案（下篇）/">iOS面试题和参考答案（下篇）</a>
-    </h1>
-  
+        <h2 id="设置appicon">设置appicon</h2><p>General – App Icon Source  设置AppIcon </p>
+<p>图片大小</p>
+<p>iphone 6P（@3x）    180x180</p>
+<p>iphone 6（@2x）</p>
+<p>iphone5/5s （@2x）    120x120</p>
+<p>iphone4/4s (@2x)</p>
+<h2 id="设置launchimage">设置launchimage</h2><p>第一种方法</p>
+<p>General – launch image source – use asset catalog  设置launchimage(删掉launchScreen.xib)</p>
+<p>iphone 6P（@3x）  1242 x 2208 (@3x) for portrait –Retina HD 5.5</p>
+<p>iphone 6（@2x）   750 x 1334 (@2x) for portrait – Retina HD 4.7</p>
+<p>iphone5/5s （@2x）  640 x 1136 (@2x) for portrait – Retina 4</p>
+<p>iphone4/4s (@2x)   640 x 960 (@2x) for portrait –  2x</p>
+<p>第二种方法</p>
+<p>使用launchScreen.xib</p>
+<p>在xib中拖入一个imageview 设置好约束 上下左右都为0  为imageview添加图片 然后在Images.xcassets中添加相同名字的new image set。在右边将Devices 改为 Device specific</p>
+<p>3x 适用于 iphone 6P</p>
+<p>Retina 4 2x 适用于 iPhone5s/5</p>
+<p>2x 适用于 iphone4s/iphone6 </p>
+<p>（不建议使用这种方法，如果同时适配4s和6的话，图片会失真，因为4s和6屏幕的比例不同）</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/09/02/iOS面试题和参考答案（上篇）/" class="archive-article-date">
-  <time datetime="2015-09-02T06:22:46.000Z" itemprop="datePublished">9月 2</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/02/iOS面试题和参考答案（上篇）/">iOS面试题和参考答案（上篇）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/09/01/随笔小记/" class="archive-article-date">
-  <time datetime="2015-09-01T00:44:05.000Z" itemprop="datePublished">9月 1</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/09/06/设置appicon和启动图/" data-id="cie8l5a3v00027ni04w1cyke2" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/01/随笔小记/">随笔小记</a>
-    </h1>
-  
-
-    </header>
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/09/02/iOS面试题和参考答案（下篇）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">iOS面试题和参考答案（下篇）</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 </section>
         
           <aside id="sidebar">

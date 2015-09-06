@@ -61,6 +61,61 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-设置appicon和启动图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/06/设置appicon和启动图/" class="article-date">
+  <time datetime="2015-09-06T13:27:52.000Z" itemprop="datePublished">2015-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/06/设置appicon和启动图/">设置appicon和启动图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="设置appicon">设置appicon</h2><p>General – App Icon Source  设置AppIcon </p>
+<p>图片大小</p>
+<p>iphone 6P（@3x）    180x180</p>
+<p>iphone 6（@2x）</p>
+<p>iphone5/5s （@2x）    120x120</p>
+<p>iphone4/4s (@2x)</p>
+<h2 id="设置launchimage">设置launchimage</h2><p>第一种方法</p>
+<p>General – launch image source – use asset catalog  设置launchimage(删掉launchScreen.xib)</p>
+<p>iphone 6P（@3x）  1242 x 2208 (@3x) for portrait –Retina HD 5.5</p>
+<p>iphone 6（@2x）   750 x 1334 (@2x) for portrait – Retina HD 4.7</p>
+<p>iphone5/5s （@2x）  640 x 1136 (@2x) for portrait – Retina 4</p>
+<p>iphone4/4s (@2x)   640 x 960 (@2x) for portrait –  2x</p>
+<p>第二种方法</p>
+<p>使用launchScreen.xib</p>
+<p>在xib中拖入一个imageview 设置好约束 上下左右都为0  为imageview添加图片 然后在Images.xcassets中添加相同名字的new image set。在右边将Devices 改为 Device specific</p>
+<p>3x 适用于 iphone 6P</p>
+<p>Retina 4 2x 适用于 iPhone5s/5</p>
+<p>2x 适用于 iphone4s/iphone6 </p>
+<p>（不建议使用这种方法，如果同时适配4s和6的话，图片会失真，因为4s和6屏幕的比例不同）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/09/06/设置appicon和启动图/" data-id="cie8l5a3v00027ni04w1cyke2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-iOS面试题和参考答案（下篇）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/02/iOS面试题和参考答案（下篇）/" class="article-date">
@@ -470,7 +525,7 @@ f00();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（下篇）/" data-id="cie2egm1e00030ei08o098f5k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（下篇）/" data-id="cie8l5a3y00047ni0yzvulz73" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1450,7 +1505,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（上篇）/" data-id="cie2egm1h00040ei05oq9g6v2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（上篇）/" data-id="cie8l5a4100057ni0qfzrr0m3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1532,7 +1587,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie2egm1b00010ei04koqwolw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cie8l5a3o00017ni0xzzcj8v0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1582,7 +1637,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cie2egm1d00020ei0hw4ftozp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cie8l5a3x00037ni0b2np2ss0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1619,7 +1674,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cie2egm0m00000ei0vknwiadt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/hello-hexo/" data-id="cie8l5a2v00007ni06jea1fkn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1664,7 +1719,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cie2egm1i00050ei03jdfr1bh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/17/hello-world/" data-id="cie8l5a4200067ni0ljgtq8r3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1689,7 +1744,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -1699,6 +1754,10 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/09/06/设置appicon和启动图/">设置appicon和启动图</a>
+          </li>
         
           <li>
             <a href="/2015/09/02/iOS面试题和参考答案（下篇）/">iOS面试题和参考答案（下篇）</a>
@@ -1714,10 +1773,6 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
         
           <li>
             <a href="/2015/08/31/iOS预览文件类/">iOS预览文件类</a>
-          </li>
-        
-          <li>
-            <a href="/2015/08/31/hello-hexo/">hello-hexo</a>
           </li>
         
       </ul>
