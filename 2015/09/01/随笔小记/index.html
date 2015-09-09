@@ -6,31 +6,25 @@
   <title>随笔小记 | Dongdong blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="理论知识//遇见的问题
-(1)新建继承于NSObject的类时，调不出CGRect等属性
-解决 ：添加#import 
-(2)NSstring *str = [NSdata alloc] init];
-如何理解这句话
-首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终">
+(1)新建继承于NSObject的类时，调不出CGRect等属性解决 ：添加#import 
+(2)NSstring *str = [NSdata alloc] init];如何理解这句话
+首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终生成">
 <meta property="og:type" content="article">
 <meta property="og:title" content="随笔小记">
 <meta property="og:url" content="http://yoursite.com/2015/09/01/随笔小记/index.html">
 <meta property="og:site_name" content="Dongdong blog">
 <meta property="og:description" content="理论知识//遇见的问题
-(1)新建继承于NSObject的类时，调不出CGRect等属性
-解决 ：添加#import 
-(2)NSstring *str = [NSdata alloc] init];
-如何理解这句话
-首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终">
+(1)新建继承于NSObject的类时，调不出CGRect等属性解决 ：添加#import 
+(2)NSstring *str = [NSdata alloc] init];如何理解这句话
+首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终生成">
 <meta property="og:image" content="http://7xlip0.com1.z0.glb.clouddn.com/aiOS%20Simulator%20Screen%20Shot%202015年9月2日%20上午9.55.13.png">
-<meta property="og:updated_time" content="2015-09-08T05:03:30.000Z">
+<meta property="og:updated_time" content="2015-09-09T13:35:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="随笔小记">
 <meta name="twitter:description" content="理论知识//遇见的问题
-(1)新建继承于NSObject的类时，调不出CGRect等属性
-解决 ：添加#import 
-(2)NSstring *str = [NSdata alloc] init];
-如何理解这句话
-首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终">
+(1)新建继承于NSObject的类时，调不出CGRect等属性解决 ：添加#import 
+(2)NSstring *str = [NSdata alloc] init];如何理解这句话
+首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终生成">
   
     <link rel="alternative" href="/atom.xml" title="Dongdong blog" type="application/atom+xml">
   
@@ -99,12 +93,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="理论知识">理论知识</h1><p>//遇见的问题</p>
-<p>(1)新建继承于NSObject的类时，调不出CGRect等属性</p>
-<p>解决 ：添加#import <uikit uikit.h=""></uikit></p>
-<p>(2)NSstring *str = [NSdata alloc] init];</p>
-<p>如何理解这句话</p>
+<h2 id="(1)新建继承于NSObject的类时，调不出CGRect等属性">(1)新建继承于NSObject的类时，调不出CGRect等属性</h2><p>解决 ：添加#import <uikit uikit.h=""></uikit></p>
+<h2 id="(2)NSstring_*str_=_[NSdata_alloc]_init];">(2)NSstring *str = [NSdata alloc] init];</h2><p>如何理解这句话</p>
 <p>首先声明NSstring *str这句话是告诉编译器 str是指向一个OC对象的指针，不管指向的是什么类型的对象，一个指针所对应的内存空间是固定的，所以这里声明成任何类型的对象，最终生成的可执行的代码是没有区别的。这里限定NSstring只是告诉编译器把str当做一个NSString类型来检查，如果后边调用了费NSString方法，编译器会发出警告。</p>
 <p>等号右边创建了一个NSdata对象，这个对象的内存地址保存在str处，在运行时str指向的内存空间就是一个NSdata对象，这样可以吧str当成一个NSdata对象来使用。</p>
+<h2 id="(3)iOS_7-0之后的lable自适应高度">(3)iOS 7.0之后的lable自适应高度</h2><p>直接上代码</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UILabel</span> *sizelable = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    sizelable<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> grayColor];</span><br><span class="line">    sizelable<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">    sizelable<span class="variable">.text</span> = <span class="string">@"第三款看懂啊ok豆粕你电脑没打案发破产破奥剑南春脑残片破富婆佛爬满覅实地偶发IOS吗覅破发颇丰平假的加盟哦没法买欧普发票，破发妈妈破偶发佛怕哦平方毛坯莫怕磨破"</span>;</span><br><span class="line">    sizelable<span class="variable">.numberOfLines</span> = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line"><span class="built_in">CGRect</span> rect  = [sizelable<span class="variable">.text</span> boundingRectWithSize:<span class="built_in">CGSizeMake</span>(<span class="number">100</span>, <span class="built_in">CGFLOAT_MAX</span>) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> |<span class="built_in">NSStringDrawingUsesFontLeading</span> attributes:[<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>],<span class="built_in">NSFontAttributeName</span>, <span class="literal">nil</span>] context:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line"> sizelable<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">200</span>, <span class="number">100</span>, rect<span class="variable">.size</span><span class="variable">.height</span>+<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>注意点：（1）numberOfLines属性设为0。<br>       （2）字典中的字体要保持一致<br>        （3）换行格式要两种格式都要写上，不然有可能计算不准确</p>
+<h2 id="根据根据给定的字符串计算lable的宽度">根据根据给定的字符串计算lable的宽度</h2><p>（多少号的字体，这个字所占的宽度就是多少）</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *str = <span class="string">@"aaa"</span>;</span><br><span class="line">    <span class="built_in">UILabel</span> *lable = [[<span class="built_in">UILabel</span> alloc] init];</span><br><span class="line">    lable<span class="variable">.text</span> = str;</span><br><span class="line">    lable<span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    lable<span class="variable">.font</span> = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">    </span><br><span class="line"> <span class="built_in">CGSize</span> lableize = [lable<span class="variable">.text</span> sizeWithAttributes:[<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:[<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>],<span class="built_in">NSFontAttributeName</span>, <span class="literal">nil</span>]];</span><br><span class="line">    lable<span class="variable">.frame</span> = <span class="built_in">CGRectMake</span>(<span class="number">100</span>, <span class="number">100</span>, lableize<span class="variable">.width</span>, lableize<span class="variable">.height</span>);</span><br></pre></td></tr></table></figure>
 <h1 id="（1）-使用视图控制器（View_Controller）">（1）.使用视图控制器（View Controller）</h1><p>在iOS 7中，视图控制器都是全屏的。iOS 7视图控制器的外观给人传达了更细腻的控制感。特别是新的全屏外观让你可以指定视图的每个边缘的布局。</p>
 <p>UIViewController提供了如下属性来调整视图控制器的外观：</p>
 <p>1.edgesForExtendedLayout：这个属性属于UIExtendedEdge类型，它可以单独指定矩形的四条边，也可以单独指定、指定全部、全部不指定。</p>
@@ -155,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cieaw6kyk0001x4i05waqa6op" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="ciectxo190001ydi0hzuzhzzc" class="article-share-link">Share</a>
       
       
     </footer>
