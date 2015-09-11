@@ -61,6 +61,43 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-设置TableviewCell默认的分割线顶格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/11/设置TableviewCell默认的分割线顶格/" class="article-date">
+  <time datetime="2015-09-11T01:15:31.000Z" itemprop="datePublished">2015-09-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/11/设置TableviewCell默认的分割线顶格/">设置TableviewCell默认的分割线顶格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>iOS 默认的分割线是有缩进的，如果想让分割线顶格可以添加如下代码</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">-</span> (void)<span class="tag">viewDidLoad</span>&#123;  </span><br><span class="line">   <span class="attr_selector">[super viewDidLoad]</span>;</span><br><span class="line">   <span class="comment">//分割线方法</span></span><br><span class="line">    <span class="tag">if</span> ([_Subtasktableview <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setSeparatorInset</span>:)]) &#123;</span><br><span class="line">        <span class="attr_selector">[_Subtasktableview setSeparatorInset:UIEdgeInsetsZero]</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">   <span class="tag">if</span> ([_Subtasktableview <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setLayoutMargins</span>:)]) &#123;</span><br><span class="line">        <span class="attr_selector">[_Subtasktableview setLayoutMargins:UIEdgeInsetsZero]</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="tag">-</span>(void)<span class="tag">tableView</span>:(UITableView *)<span class="tag">tableView</span> <span class="tag">willDisplayCell</span>:(UITableViewCell *)<span class="tag">cell</span> <span class="tag">forRowAtIndexPath</span>:(NSIndexPath *)<span class="tag">indexPath</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">//分割线方法</span></span><br><span class="line">    <span class="tag">if</span> ([cell <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setSeparatorInset</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">      <span class="attr_selector">[cell setSeparatorInset:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="tag">if</span> ([cell <span class="attribute">respondsToSelector</span>:<span class="variable">@selector</span>(<span class="attribute">setLayoutMargins</span>:)]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="attr_selector">[cell setLayoutMargins:UIEdgeInsetsZero]</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/09/11/设置TableviewCell默认的分割线顶格/" data-id="cieeyjc8800036ei04s36c860" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Xmpp导入Xcode" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/09/10/Xmpp导入Xcode/" class="article-date">
@@ -114,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/10/Xmpp导入Xcode/" data-id="ciedk5cs200063pi0oz2pgx0j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/10/Xmpp导入Xcode/" data-id="cieeyjc8e00076ei0kg46vr9w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -157,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/10/Xcode6-4添加pch文件/" data-id="ciedk5crg00003pi0he210ygr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/10/Xcode6-4添加pch文件/" data-id="cieeyjc7l00006ei082mnt1ne" class="article-share-link">Share</a>
       
       
     </footer>
@@ -212,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/06/设置appicon和启动图/" data-id="ciedk5cru00023pi07xouwipc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/06/设置appicon和启动图/" data-id="cieeyjc8700026ei0h0351v8l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -631,7 +668,7 @@ f00();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（下篇）/" data-id="ciedk5cry00043pi0bvabiuni" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（下篇）/" data-id="cieeyjc8b00056ei0z92rh3gp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1611,7 +1648,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（上篇）/" data-id="ciedk5cs000053pi0rohy2vla" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/02/iOS面试题和参考答案（上篇）/" data-id="cieeyjc8d00066ei0tuchsnf4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1704,7 +1741,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="ciedk5crs00013pi0ug7z1su0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/09/01/随笔小记/" data-id="cieeyjc8500016ei05hp9mkm4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1754,7 +1791,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="ciedk5crw00033pi0flumwzkz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/08/31/iOS预览文件类/" data-id="cieeyjc8a00046ei03jfyu2y9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1779,7 +1816,7 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1789,6 +1826,10 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/09/11/设置TableviewCell默认的分割线顶格/">设置TableviewCell默认的分割线顶格</a>
+          </li>
         
           <li>
             <a href="/2015/09/10/Xmpp导入Xcode/">Xmpp导入Xcode</a>
@@ -1804,10 +1845,6 @@ NSLog<span class="params">(<span class="params">(NSString *)</span>&amp;__NSCons
         
           <li>
             <a href="/2015/09/02/iOS面试题和参考答案（下篇）/">iOS面试题和参考答案（下篇）</a>
-          </li>
-        
-          <li>
-            <a href="/2015/09/02/iOS面试题和参考答案（上篇）/">iOS面试题和参考答案（上篇）</a>
           </li>
         
       </ul>
